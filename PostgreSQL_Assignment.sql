@@ -53,12 +53,10 @@ VALUES(4,'Derek Fox','Coastal Plains');
 SELECT count(DISTINCT species_id) AS unique_species_count FROM sightings; 
 
 --PROBLEM 03
-
 SELECT * from sightings
 where location LIKE '%Pass%';
 
 --PROBLEM 04
-
 SELECT name, count(*) AS total_sightings 
 from rangers
 JOIN sightings ON rangers.ranger_id = sightings.ranger_id
@@ -73,3 +71,51 @@ LEFT JOIN sightings ON species.species_id = sightings.species_id
 where sighting_id IS NULL;
 
 --PROBLEM 06
+SELECT common_name, sighting_time, name
+FROM
+    sightings
+    JOIN rangers ON rangers.ranger_id = sightings.ranger_id
+    JOIN species ON species.species_id = sightings.species_id
+ORDER BY sighting_time DESC
+LIMIT 2;
+
+-- PROBLEM 07
+UPDATE species
+SET
+    conservation_status = 'Historic'
+WHERE
+    extract(
+        YEAR
+        FROM discovery_date
+    ) < 1800;
+
+-- PROBLEM 08
+SELECT
+    sighting_id,
+    CASE
+        WHEN extract(
+            HOUR
+            FROM sighting_time
+        ) < 12 THEN 'Morning'
+        WHEN extract(
+            HOUR
+            FROM sighting_time
+        ) >= 12
+        AND extract(
+            HOUR
+            FROM sighting_time
+        ) < 17 THEN 'Afternoon'
+        ELSE 'Evening'
+    END AS time_of_day
+FROM sightings;
+
+-- PROBLEM 09
+DELETE FROM rangers
+WHERE
+    ranger_id IN (
+        SELECT rangers.ranger_id
+        FROM rangers
+            LEFT JOIN sightings ON sightings.ranger_id = rangers.ranger_id
+        WHERE
+            sighting_id IS NULL
+    );
