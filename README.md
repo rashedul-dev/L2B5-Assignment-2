@@ -51,8 +51,8 @@ CREATE TABLE enrollments (
 
 **উদাহরণ:**
 ```sql
-name CHAR(10)     -- 'Alex      '
-name VARCHAR(10)  -- 'Alex'
+name CHAR(10)     -- 'rashedul  '
+name VARCHAR(10)  -- 'rashedul'
 ```
 
 ### ৫. SELECT স্টেটমেন্টে WHERE ক্লজের উদ্দেশ্য কী?
@@ -86,9 +86,9 @@ SELECT * FROM students LIMIT 5 OFFSET 10;
 
 **উদাহরণ:**
 ```sql
-UPDATE students SET name = 'Rahim' WHERE id = 1;
+UPDATE students SET name = 'Rashedul' WHERE id = 1;
 ```
-এটি `id = 1` এর নাম পরিবর্তন করে 'Rahim' করবে।
+এটি `id = 1` এর নাম পরিবর্তন করে 'Rashedul' করবে।
 
 ## ৮. JOIN অপারেশনের গুরুত্ব এবং কাজ
 `JOIN` ব্যবহৃত হয় একাধিক টেবিলের ডেটা যুক্ত করতে, তাদের মধ্যে সম্পর্ক অনুযায়ী।
