@@ -53,10 +53,12 @@ VALUES(4,'Derek Fox','Coastal Plains');
 SELECT count(DISTINCT species_id) AS unique_species_count FROM sightings; 
 
 --PROBLEM 03
+
 SELECT * from sightings
 where location LIKE '%Pass%';
 
 --PROBLEM 04
+
 SELECT name, count(*) AS total_sightings 
 from rangers
 JOIN sightings ON rangers.ranger_id = sightings.ranger_id
