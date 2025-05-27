@@ -91,7 +91,7 @@ UPDATE students SET name = 'Rashedul' WHERE id = 1;
 এটি `id = 1` এর নাম পরিবর্তন করে 'Rashedul' করবে।
 
 ## ৮. JOIN অপারেশনের গুরুত্ব এবং কাজ
-`JOIN` ব্যবহৃত হয় একাধিক টেবিলের ডেটা যুক্ত করতে, তাদের মধ্যে সম্পর্ক অনুযায়ী।
+`JOIN` ব্যবহৃত হয় একাধিক টেবিলের ডেটা যুক্ত করতে এবং তাদের মধ্যের সম্পর্ক অনুযায়ী এই টেবিলটি যুক্ত করা হয়।
 
 **উদাহরণ:**
 ```sql
@@ -102,7 +102,7 @@ JOIN enrollments ON students.id = enrollments.student_id;
 এখানে দুইটি টেবিল একসাথে মিলিয়ে ছাত্রের নাম এবং কোর্স দেখানো হয়েছে।
 
 ## ৯. GROUP BY ক্লজ ও এর Aggregation-এ ব্যবহার
-`GROUP BY` ব্যবহার করে নির্দিষ্ট কলামের উপর ভিত্তি করে রেকর্ডগুলো গ্রুপ করা হয়। এটি সাধারণত aggregate ফাংশনের সঙ্গে ব্যবহৃত হয়।
+`GROUP BY` ব্যবহার করে নির্দিষ্ট কলামের উপর ভিত্তি করে রেকর্ডগুলো গ্রুপ করা হয়। এটি সাধারণত aggregate ফাংশনের সঙ্গে ব্যাবহার করা হয়।
 
 **উদাহরণ:**
 ```sql
@@ -120,8 +120,8 @@ GROUP BY course;
 
 **উদাহরণ:**
 ```sql
-SELECT COUNT(*) FROM students;
-SELECT SUM(marks) FROM results;
-SELECT AVG(marks) FROM results;
+SELECT COUNT(*) FROM workers;
+SELECT SUM(marks) FROM salary;
+SELECT AVG(marks) FROM salary;
 ```
-এই কমান্ডগুলো মোট ছাত্র, মোট নম্বর, এবং গড় নম্বর বের করবে।
+এই কমান্ডগুলো মোট শ্রমিক, মোট বেতন, এবং গড় বেতন বের করে দেখাবে।
